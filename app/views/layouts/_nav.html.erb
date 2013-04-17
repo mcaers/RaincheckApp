@@ -1,0 +1,23 @@
+<div class="navbar">
+  <div class="navbar-inner">
+  	<a class="brand" href="#">Raincheck</a>
+      <ul class="nav">
+	     <li class="<%= 'active' if params[:controller] == 'home'%>"><a href="/">Home</a></li>
+      </li>
+        <% if user_signed_in? %>
+         <li class="<%= 'active' if params[:controller] == 'rainchecks'%>">
+          <%= link_to "Rainchecks", rainchecks_url %>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="pull-right">
+        <% if user_signed_in? %>
+          <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'btn' %>
+        <% else %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
+          <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-success' %>
+        <% end %>
+      </div>
+  </div>
+</div>

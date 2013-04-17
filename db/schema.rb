@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417143143) do
+ActiveRecord::Schema.define(:version => 20130417172358) do
+
+  create_table "raincheck_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "raincheck_id"
+    t.boolean  "given"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "raincheck_users", ["raincheck_id"], :name => "index_raincheck_users_on_raincheck_id"
+  add_index "raincheck_users", ["user_id"], :name => "index_raincheck_users_on_user_id"
 
   create_table "rainchecks", :force => true do |t|
     t.string   "title"
@@ -37,6 +48,8 @@ ActiveRecord::Schema.define(:version => 20130417143143) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
