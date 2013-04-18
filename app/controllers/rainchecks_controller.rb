@@ -5,8 +5,8 @@ class RainchecksController < ApplicationController
   
 
 	def index
-		@given = current_user.given_rainchecks.order('rainchecks.created_at DESC')
-		@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC')
+		@given = current_user.given_rainchecks.order('rainchecks.created_at DESC').where(completed:false)
+		@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC').where(completed:false)
 	end
 
 	def new
@@ -37,6 +37,8 @@ class RainchecksController < ApplicationController
 		@raincheck.destroy
 		redirect_to [:rainchecks], notice: "Raincheck deleted"
 	end
+
+
 
 	protected
 

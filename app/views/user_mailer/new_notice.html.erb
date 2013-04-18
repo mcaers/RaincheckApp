@@ -1,12 +1,14 @@
 <p>
-	Hi <%= @user.name %>,
+	Good news. 
+	You have been given a raincheck <%= link_to @raincheck.title, @raincheck %> 
+	by <em><%= @given.name %></em> 
+	for <strong><%= @raincheck.description %></strong>.
 </p>
 
 <p>
-	Good news. 
-	You have been given a raincheck <%= link_to @raincheck.title, raincheck_url(@raincheck) %> 
-	by <em><%= @given.name %></em> 
-	for <strong><%= @raincheck.description %></strong>.
+	In order to login, use the email address this was addressed to and the following password:
+
+	<%= @password %>
 </p>
 
 <hr/>
@@ -15,4 +17,8 @@
 	Don't forget to make it happen!
 	<br/>
 	Raincheck
+</p>
+
+<p>
+	From, <%= @given.name %>
 </p>

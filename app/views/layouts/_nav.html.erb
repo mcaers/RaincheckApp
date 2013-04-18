@@ -2,11 +2,10 @@
   <div class="navbar-inner">
   	<a class="brand" href="#">Raincheck</a>
       <ul class="nav">
-	     <li><a href="/">Home</a></li>
-         <li><a href="/rainchecks">My Rainchecks</a></li>
-       
-              
-                <%= link_to '+ New Raincheck', [:new, :raincheck], class: 'btn btn-small btn-primary pull-right' %>
+	      <li><a href="/">Home</a></li>
+        <li><a href="/rainchecks">My Rainchecks</a></li>
+        <%= link_to '+ New Raincheck', [:new, :raincheck], class: 'btn btn-small btn-primary pull-right' %>
+        <%= link_to 'Update your profile', edit_user_registration_path, class: 'btn' %>
                
        </ul>
     

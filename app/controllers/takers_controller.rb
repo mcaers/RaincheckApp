@@ -4,11 +4,12 @@ class TakersController < ApplicationController
 
   def create
   	@taker = User.where(:email => params[:user][:email]).first_or_initialize params[:user]
+  	password = @taker.generate_password if @taker.encrypted_password == ""
   	@raincheck_user = @raincheck.raincheck_users.build :user => @taker
 
   	if @taker.save && @raincheck_user.save
-  		UserMailer.new_notice(@taker).deliver
-  		redirect_to rainchecks_path, notice "$#{@taker} has been added to this raincheck."
+  		UserMailer.new_notice(@taker, @raincheck, password).deliver
+  		redirect_to rainchecks_path
   	else
   		render :new
   	end
