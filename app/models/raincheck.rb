@@ -1,15 +1,13 @@
 class Raincheck < ActiveRecord::Base
-  before_create :set_owner
+  
 
   has_many :raincheck_users	
-  has_many :users, through: :raincheck_users
-  belongs_to :owner, :class_name => 'User', :foreign_key => 'user_id'
+  has_many :takers, :source => :user, through: :raincheck_users
+  belongs_to :giver, :class_name => 'User', :foreign_key => 'user_id'
 
   attr_accessible :completed, :description, :title
 
-  def set_owner
-  	# only happens when a raincheck is CREATED, not updated
-  	# set the owner to the user who created this, probably current_user
-  	self.owner = current_user
-  end
+ 
+  validates :title, presence: true, length: {maximum: 100}
+  validates :description, presence: true, length: {maximum: 140}
 end

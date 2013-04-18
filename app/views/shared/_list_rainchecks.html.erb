@@ -1,0 +1,11 @@
+<ul>
+	<% @given.each do |raincheck| %>
+	  <li>
+	    <%= link_to given.title, raincheck %>
+	    <br>
+	    <%= raincheck.description %>
+	  </li>
+	<% end %>
+</ul>
+
+<%= paginate @given %>

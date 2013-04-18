@@ -1,0 +1,18 @@
+<p>
+	Hi <%= @user.name %>,
+</p>
+
+<p>
+	Good news. 
+	You have been given a raincheck <%= link_to @raincheck.title, raincheck_url(@raincheck) %> 
+	by <em><%= @given.name %></em> 
+	for <strong><%= @raincheck.description %></strong>.
+</p>
+
+<hr/>
+
+<p>
+	Don't forget to make it happen!
+	<br/>
+	Raincheck
+</p>

@@ -1,0 +1,27 @@
+<h1>Edit <%= @raincheck.title %></h1>
+
+<hr/>
+
+<div class="well">
+  <%= link_to [:rainchecks], :class => 'btn btn-small' do %>
+    &laquo; My Rainchecks
+  <% end %>
+
+  <div class="pull-right">
+    <%= link_to 'Delete Raincheck', [@raincheck], :method => :delete, :class => 'btn btn-small btn-danger', :confirm => "Are you sure?" %>
+  </div>
+
+</div>
+
+<%= form_for [@raincheck] do |f| %>
+
+  <%= render 'shared/form_errors', :f => f %>
+
+  
+  <%= render f %>
+
+  <div class="form-actions">
+    <%= f.submit 'Update Raincheck', class: 'btn' %>
+  </div>
+
+<% end %>

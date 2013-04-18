@@ -1,4 +1,11 @@
 RaincheckApp::Application.routes.draw do
+
+  resources :given
+
+  resources :rainchecks do
+    resources :takers
+  end
+
   devise_for :users
 
   # The priority is based upon order of creation:

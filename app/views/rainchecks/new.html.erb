@@ -1,0 +1,18 @@
+<h1>New Raincheck</h1>
+
+<hr/>
+
+
+<%= form_for [@raincheck] do |f| %>
+
+  <%= render 'shared/form_errors', :f => f %>
+
+ 
+  <%= render f %>
+
+  <div class="form-actions">
+    <%= f.submit 'Create Raincheck', class: 'btn' %>
+  </div>
+
+  
+<% end %>

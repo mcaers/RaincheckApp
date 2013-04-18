@@ -10,5 +10,14 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :raincheck_users	
-  has_many :rainchecks, through: :raincheck_users
+  has_many :taken_rainchecks, :source => :raincheck, :through => :raincheck_users
+  has_many :given_rainchecks, :primary_key => :user_id, :class_name => 'Raincheck'
+
+  before_validation :on =>:create do 
+    self.password = (0...8).map{(65+rand(26)).chr}.join
+  end
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

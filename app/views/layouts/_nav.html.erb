@@ -2,14 +2,14 @@
   <div class="navbar-inner">
   	<a class="brand" href="#">Raincheck</a>
       <ul class="nav">
-	     <li class="<%= 'active' if params[:controller] == 'home'%>"><a href="/">Home</a></li>
-      </li>
-        <% if user_signed_in? %>
-         <li class="<%= 'active' if params[:controller] == 'rainchecks'%>">
-          <%= link_to "Rainchecks", rainchecks_url %>
-        </li>
-      <% end %>
-    </ul>
+	     <li><a href="/">Home</a></li>
+         <li><a href="/rainchecks">My Rainchecks</a></li>
+       
+              
+                <%= link_to '+ New Raincheck', [:new, :raincheck], class: 'btn btn-small btn-primary pull-right' %>
+               
+       </ul>
+    
 
     <div class="pull-right">
         <% if user_signed_in? %>
@@ -21,3 +21,4 @@
       </div>
   </div>
 </div>
+

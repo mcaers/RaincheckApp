@@ -1,0 +1,14 @@
+<%= form_for @taker, :url => "/rainchecks/#{@raincheck.id}/takers/#{@taker.id}" do |f| %>
+
+
+ <%= render 'shared/form_errors', :f => f %>
+
+	<div>
+	  <%= f.text_field :email, placeholder: 'Taker email.' %>
+	</div>
+
+  <div class="form-actions">
+    <%= f.submit 'Add taker email', class: 'btn' %>
+  </div>
+
+<% end %>
