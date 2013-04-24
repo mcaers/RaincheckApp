@@ -5,8 +5,8 @@ class RainchecksController < ApplicationController
   
 
 	def index
-		@given = current_user.given_rainchecks.order('rainchecks.created_at DESC').where(completed:false)
-		@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC').where(completed:false)
+		@given = current_user.given_rainchecks.order('rainchecks.created_at DESC')
+		@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC')
 	end
 
 	def new
@@ -14,6 +14,11 @@ class RainchecksController < ApplicationController
 	end
 
 	def edit
+	end
+
+	def show
+		@raincheck = Raincheck.find(params[:id])
+		@given = @raincheck.giver
 	end
 
 	def update
@@ -35,8 +40,22 @@ class RainchecksController < ApplicationController
 
 	def destroy
 		@raincheck.destroy
-		redirect_to [:rainchecks], notice: "Raincheck deleted"
+		redirect_to [:rainchecks], notice: "Raincheck deleted!"
 	end
+
+	# def complete
+	# 	@raincheck = Raincheck.find(params[:id])
+	# 	if @raincheck.completed == false
+	# 		@raincheck.completed = true
+	# 		@raincheck.save
+	# 		  redirect_to [:rainchecks], notice: "Raincheck archived!"
+	# 	end
+	# end
+
+	# def masterlist
+	# 	@given = current_user.given_rainchecks.order('rainchecks.created_at DESC')
+	# 	@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC')
+	# end
 
 
 

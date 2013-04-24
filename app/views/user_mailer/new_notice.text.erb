@@ -1,27 +1,24 @@
 Hi,
 
-<p>
+
 	Good news. 
 	You have been given a raincheck <%= link_to @raincheck.title, @raincheck %> 
-	by <em><%= @given.name %></em> 
-	for <strong><%= @raincheck.description %></strong>.
-</p>
+	by <%= @given.name %>
+	for <%= @raincheck.description %>.
 
-<p>
+
+
 	In order to login, use the email address this was addressed to and the following password:
 
 	<%= @password %>
-</p>
 
-<hr/>
 
-<p>
-	Looking forward to it!	
-</p>
 
-<p>
-	From, 
-</p>
-<p>
-	<%= @given.name %>
-</p>
+	Looking forward to it!
+
+
+
+	All the best,
+
+	 <%= @given.name %>
+

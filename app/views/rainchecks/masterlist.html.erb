@@ -1,0 +1,22 @@
+<h3> All Rainchecks</h3>
+
+
+<ul>
+	<% @given.each do |raincheck| %>
+		<h4><%= raincheck.title %></h4>
+		<li><%= raincheck.description %></li>
+		<%= link_to '+ Add taker email', [:new, raincheck, :taker]%>
+		<%= link_to '+ Edit Raincheck', [:edit, raincheck] %>
+		<% end %>
+
+</ul>
+
+<h3> Taken Rainchecks</h3>
+
+<ul>
+	<% @taken.each do |raincheck| %>
+		<li><%= raincheck.title %></li>
+		<li><%= raincheck.description %></li>
+		<% end %>
+
+</ul>

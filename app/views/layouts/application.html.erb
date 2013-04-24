@@ -10,7 +10,9 @@
 </head>
 <body>
  <div class="container">
+  
  	<%= render "/layouts/nav" %>
+   <%= link_to '+ New Raincheck', [:new, :raincheck], class: 'btn btn-primary pull-right' %>
 	
        <% if flash[:alert] %>
         <div class="alert alert-error">

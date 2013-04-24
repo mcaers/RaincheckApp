@@ -1,13 +1,17 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= link_to "Back", :back %>
+
+
+
+<h2>Update Profile</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div><%= f.label :first_name %><br />
-  <%= f.email_field :first_name, :autofocus => true %></div>
+  <%= f.text_field :first_name  %></div>
 
   <div><%= f.label :last_name %><br />
-  <%= f.email_field :last_name, :autofocus => true %></div>
+  <%= f.text_field :last_name %></div>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
@@ -16,13 +20,13 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <div><%= f.label :current_password %> <i><small>(we need your current password to confirm your changes)</small></i><br />
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.label :password %> <i>(enter new password or leave blank if you don't want to change it)</i><br />
+  <div><%= f.label :password %> <i><small>(enter new password or leave blank if you don't want to change it)</small></i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :password_confirmation%><i>(confirm new password)</i><br />
+  <div><%= f.label :password_confirmation%><i><small>(confirm new password)</small></i><br />
   <%= f.password_field :password_confirmation %></div>
 
 
