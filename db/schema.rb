@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417172358) do
+ActiveRecord::Schema.define(:version => 20130425231441) do
 
   create_table "raincheck_users", :force => true do |t|
     t.integer  "user_id"
@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(:version => 20130417172358) do
     t.string   "title"
     t.integer  "user_id"
     t.string   "description"
-    t.boolean  "completed"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "completed",   :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "rainchecks", ["user_id"], :name => "index_rainchecks_on_user_id"

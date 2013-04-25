@@ -5,12 +5,13 @@ class RainchecksController < ApplicationController
   
 
 	def index
-		@given = current_user.given_rainchecks.order('rainchecks.created_at DESC')
-		@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC')
+		@given = current_user.given_rainchecks.order('rainchecks.created_at DESC').where :completed => false
+		@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC').where :completed => false
 	end
 
 	def new
 		@raincheck = current_user.given_rainchecks.build
+		@raincheck.takers.build
 	end
 
 	def edit
