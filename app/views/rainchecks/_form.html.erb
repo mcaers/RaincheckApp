@@ -1,10 +1,17 @@
+
+
 <div>
   <%= form.text_field :title, placeholder: 'Raincheck for?' %>
 </div>
 
 <div>
-  <%= form.text_area :description, rows: 2, placeholder: 'Description of your raincheck.' %>
+  <%= form.text_area :description, rows: 2, placeholder: 'Description' %>
 </div>
-<p> Maximum 140 characters </p>
+<p>
+	<small><em>Maximum 140 characters</em></small>
+</p>
+<div>
+	<%= form.text_field :takers_emails, placeholder: 'Add taker email' %>
+</div>
 
-<%= form.text_field :takers_emails %>
+<small><em>To add multiple emails seperate them with a comma.</em></small>

@@ -2,14 +2,15 @@ RaincheckApp::Application.routes.draw do
 
   resources :given
 
-  # put "/rainchecks/:id" => "rainchecks#complete", as: "complete_raincheck", :except => :index
+  put "/rainchecks/:id" => "rainchecks#complete", as: "complete_raincheck", :except => :index
 
+  get "/rainchecks/masterlist" => "rainchecks#masterlist", as: "masterlist_raincheck"
 
   resources :rainchecks do
     resources :takers
   end
 
-  # get "/rainchecks/:id" => "rainchecks#masterlist", as: "masterlist_raincheck"
+  
 
   devise_for :users
 

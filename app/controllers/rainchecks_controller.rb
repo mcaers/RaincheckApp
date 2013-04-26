@@ -1,7 +1,7 @@
 class RainchecksController < ApplicationController
   
   before_filter :authenticate_user!
-  before_filter :require_raincheck, except: [:index, :new, :create]
+  before_filter :require_raincheck, except: [:index, :new, :create, :masterlist]
   
 
 	def index
@@ -44,26 +44,26 @@ class RainchecksController < ApplicationController
 		redirect_to [:rainchecks], notice: "Raincheck deleted!"
 	end
 
-	# def complete
-	# 	@raincheck = Raincheck.find(params[:id])
-	# 	if @raincheck.completed == false
-	# 		@raincheck.completed = true
-	# 		@raincheck.save
-	# 		  redirect_to [:rainchecks], notice: "Raincheck archived!"
-	# 	end
-	# end
+	def complete
+		@raincheck = Raincheck.find(params[:id])
+		if @raincheck.completed == false
+			@raincheck.completed = true
+			@raincheck.save
+			  redirect_to [:rainchecks], notice: "Raincheck archived!"
+		end
+	end
 
-	# def masterlist
-	# 	@given = current_user.given_rainchecks.order('rainchecks.created_at DESC')
-	# 	@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC')
-	# end
+	def masterlist
+		@given = current_user.given_rainchecks.order('rainchecks.created_at DESC')
+		@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC')
+	end
 
 
 
 	protected
 
 	def require_raincheck
-		@raincheck = current_user.given_rainchecks.find params[:id]
+		@raincheck = current_user.given_rainchecks#.find params[:user_id]
 	end
 
 	def nav_state

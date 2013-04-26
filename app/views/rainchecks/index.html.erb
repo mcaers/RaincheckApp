@@ -18,8 +18,9 @@
         <class="muted"><%= raincheck.description %>
       </div>
 		<br>
-		<%= link_to '+ Add taker email', [:new, raincheck, :taker], class: 'btn btn-small btn-info' %>
-		<%= link_to '+ Edit Raincheck', [:edit, raincheck], class: 'btn btn-small btn-info' %>
+	
+		<%= link_to 'Edit Raincheck', [:edit, raincheck], class: 'btn btn-small btn-info' %>
+    <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info' %>
 
 		<% end %>
 
@@ -40,7 +41,9 @@
         <%= raincheck.description %>
       </div>
       <br>
-		<%= link_to '+ Schedule Raincheck', [:edit, raincheck], class: 'btn btn-small btn-success' %>
+		<%= link_to 'Schedule Raincheck', [:edit, raincheck], class: 'btn btn-small btn-success' %>
+    <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info' %>
+
 		<% end %>
 
 </ul>
