@@ -11,17 +11,9 @@ class Raincheck < ActiveRecord::Base
   validates :title, presence: true, length: {maximum: 100}
   validates :description, presence: true, length: {maximum: 140}
 
-  def takers_emails= (emails)
-  	emails.split(",").each do |email|
-  		u = User.where(:email => email.strip).first_or_initialize()
-  		if u.new_record?
-		    password = u.generate_password
-		    u.save!
-	  		UserMailer.new_notice(u, self, password).deliver
-  		end
-  		raincheck_users.where(user_id: u.id, raincheck_id: self.id).first_or_create!()
-  	end
-  end
+  attr_accessor :takers_emails
+
+  after_save :send_email
 
   def takers_emails()
   	emails = []
@@ -30,4 +22,20 @@ class Raincheck < ActiveRecord::Base
   	end
   	return emails.join(", ")
   end
+
+  private
+
+  def send_email
+    return unless new_record?
+    @takers_emails.split(",").each do |email|
+      u = User.where(:email => email.strip).first_or_initialize()
+      if u.new_record?
+        password = u.generate_password
+        u.save!
+        UserMailer.new_notice(u, self, password).deliver
+      end
+      raincheck_users.where(user_id: u.id, raincheck_id: self.id).first_or_create!()
+    end
+  end
 end
+

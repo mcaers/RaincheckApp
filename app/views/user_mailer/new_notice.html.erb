@@ -2,7 +2,7 @@ Hi,
 
 <p>
 	Good news. 
-	You have been given a raincheck <%= link_to @raincheck.title, @raincheck %> 
+	You have been given a raincheck <%= link_to @raincheck.title, raincheck_url(@raincheck) %> 
 	from <em><%= @given.name %></em> 
 	for <strong><%= @raincheck.description %></strong>.
 </p>

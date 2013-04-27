@@ -63,7 +63,7 @@ class RainchecksController < ApplicationController
 	protected
 
 	def require_raincheck
-		@raincheck = current_user.given_rainchecks#.find params[:user_id]
+		@raincheck = current_user.given_rainchecks.find params[:id]
 	end
 
 	def nav_state
@@ -72,3 +72,5 @@ class RainchecksController < ApplicationController
 
   
 end
+
+
