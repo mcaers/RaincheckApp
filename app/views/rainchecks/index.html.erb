@@ -4,7 +4,7 @@
 
 
 
-<ul class = "span5">
+<ul class = "span6">
 
 	<h3> Given Rainchecks</h3>
 	<% @given.each do |raincheck| %>
@@ -19,7 +19,7 @@
       </div>
 		<br>
 	
-		<%= link_to 'Edit Raincheck', [:edit, raincheck], class: 'btn btn-small btn-info' %>
+		<%= link_to 'Edit', [:edit, raincheck], class: 'btn btn-small btn-info' %>
     <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info' %>
 
 		<% end %>
@@ -41,10 +41,11 @@
         <%= raincheck.description %>
       </div>
       <br>
-		<%= link_to 'Schedule Raincheck', [:edit, raincheck], class: 'btn btn-small btn-success' %>
+		<%= link_to 'Schedule', [:edit, raincheck], class: 'btn btn-small btn-success' %>
     <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info' %>
 
 		<% end %>
-
+<br></br>
 </ul>
+
 </div>

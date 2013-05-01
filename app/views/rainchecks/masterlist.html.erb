@@ -20,11 +20,11 @@
       <br>
       <% if !raincheck.completed %>
       <div class="buttons">
-        <%= link_to 'Edit Raincheck', [:edit, raincheck], class: 'btn btn-small btn-info edit' %>
+        <%= link_to 'Edit', [:edit, raincheck], class: 'btn btn-small btn-info edit' %>
         <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info complete' %>
         <% end %>
       </div>
-      <% if raincheck.completed %>
+      <% if raincheck.completed %>COMPLETED!
         <div class="pull-right">
         <%= link_to 'Delete', [raincheck], :method => :delete, :class => 'btn btn-small btn-danger', :confirm => "Are you sure?" %>
         <% end %>
@@ -49,11 +49,11 @@
        
         <br>
         <% if !raincheck.completed %>
-      		<%= link_to 'Schedule Raincheck', [:edit, raincheck], class: 'btn btn-small btn-success' %>
+      		<%= link_to 'Schedule', [:edit, raincheck], class: 'btn btn-small btn-success' %>
         <% end %>
     
     </div>
-      <% if raincheck.completed %>
+      <% if raincheck.completed %>COMPLETED!
         <div class="pull-right">
         <%= link_to 'Delete', [raincheck], :method => :delete, :class => 'btn btn-small btn-danger', :confirm => "Are you sure?" %>
         <% end %>

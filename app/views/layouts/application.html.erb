@@ -12,6 +12,7 @@
  <div class="container">
   
  	<%= render "/layouts/nav" %>
+  
    
 	
        <% if flash[:alert] %>
@@ -26,9 +27,12 @@
           <%= flash[:notice] %>
         </div>
       <% end %>
-    <%= link_to '+ New Raincheck', [:new, :raincheck], class: 'btn btn-primary pull-right' %>
-
+   
     <%= yield %>
+
+
   </div>
+    
 </body>
+
 </html>

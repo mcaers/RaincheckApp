@@ -26,7 +26,7 @@ class Raincheck < ActiveRecord::Base
   private
 
   def send_email
-    return unless new_record?
+    return if @takers_emails.blank?
     @takers_emails.split(",").each do |email|
       u = User.where(:email => email.strip).first_or_initialize()
       if u.new_record?
