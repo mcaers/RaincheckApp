@@ -2,11 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.michelle {
+.image {
      float: none;
      margin-left: 45%;
      margin-right: 50%;
-     
      margin-top: 30%;
 }
 
@@ -22,4 +21,10 @@ body {
 	background: transparent;
 }
 
-
+h1 {
+  font-family: 'Special Elite';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  margin-right: 60%;
+}

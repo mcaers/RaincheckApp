@@ -2,16 +2,10 @@ class RainchecksController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :require_raincheck, except: [:index, :new, :create, :masterlist]
-  
 
 	def index
 		@given = current_user.given_rainchecks.order('rainchecks.created_at DESC').where :completed => false
 		@taken = current_user.taken_rainchecks.order('rainchecks.created_at DESC').where :completed => false
-	end
-
-	def new
-		@raincheck = current_user.given_rainchecks.build
-		@raincheck.takers.build
 	end
 
 	def edit
@@ -69,7 +63,6 @@ class RainchecksController < ApplicationController
 	def nav_state
 		@nav = :rainchecks
 	end
-
   
 end
 
