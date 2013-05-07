@@ -4,26 +4,30 @@
 
 
 
-<ul class = "span6">
+<ul class = "span5">
 
 	<h3> Given Rainchecks</h3>
-	<% @given.each do |raincheck| %>
-	<div class="media">
-      <a class="pull-left" href="#">
-        <img class="media-object" data-src=img src="/assets/raincheck.jpg" />
-        
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading"><%= raincheck.title %></h4>
-        <class="muted"><%= raincheck.description %>
-      </div>
-		<br>
-	
-		<%= link_to 'Edit', [:edit, raincheck], class: 'btn btn-small btn-info' %>
-    <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info' %>
-
-		<% end %>
-
+  
+  	<% @given.each do |raincheck| %>
+    <div class="raincheck-container"
+    <p></p>
+    	<div class="media">
+          <a class="pull-left" href="#">
+            <img class="media-object" data-src=img src="/assets/raincheck.jpg" />
+            
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading"><%= raincheck.title %></h4>
+            <class="muted"><%= raincheck.description %>
+          </div>
+    		<br>
+    	
+    		<%= link_to 'Edit', [:edit, raincheck], class: 'btn btn-small btn-info' %>
+        <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info' %>
+      <p></p>
+    </div>
+    		<% end %>
+  
 </ul>
 
 
@@ -32,6 +36,8 @@
 
 	<h3> Taken Rainchecks</h3>
 	<% @taken.each do |raincheck| %>
+  <div class="raincheck-container"
+    <p></p>
 		<div class="media">
       <a class="pull-left" href="#">
         <img class="media-object" data-src=img src="/assets/raincheck.jpg">
@@ -40,10 +46,11 @@
         <h4 class="media-heading"><%= raincheck.title %></h4>
         <%= raincheck.description %>
       </div>
-      <br>
+      <p></p>
 		<%= link_to 'Schedule', [:edit, raincheck], class: 'btn btn-small btn-success' %>
     <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info' %>
-
+    <p></p>
+  </div>
 		<% end %>
 <br></br>
 </ul>
