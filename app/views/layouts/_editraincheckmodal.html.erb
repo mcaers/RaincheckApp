@@ -1,0 +1,20 @@
+<div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Edit <%= @raincheck.title %></h3>
+  </div>
+  <div class="modal-body">
+  	<%= form_for [@raincheck] do |f| %>
+
+    <%= render 'shared/form_errors', :f => f %>
+
+    
+    <%= render :f => %>
+   
+    
+    <%= f.submit 'Update Raincheck', class: 'btn' %>
+      
+   
+  <% end %>
+</div>
+

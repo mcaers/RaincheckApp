@@ -13,5 +13,13 @@
  *= require rainchecks
  */
 
+.imagelinks .links {
+  text-decoration: none;
+  visibility: hidden;
+}
 
+ .imagelinks:hover .links {
+  text-decoration: underline;
+  visibility: visible;
+ }
 

@@ -1,58 +1,54 @@
-
-
 <div class = "span12">
-
-
-
-<ul class = "span5">
-
-	<h3> Given Rainchecks</h3>
-  
+  <ul class = "span5">
+	 <h3> Given Rainchecks</h3>
   	<% @given.each do |raincheck| %>
     <div class="raincheck-container"
-    <p></p>
-    	<div class="media">
+      <p></p>
+      	<div class="media">
           <a class="pull-left" href="#">
-            <img class="media-object" data-src=img src="/assets/raincheck.jpg" />
-            
+            <img class="media-object" data-src=img src="/assets/raincheck.jpg" />  
           </a>
           <div class="media-body">
             <h4 class="media-heading"><%= raincheck.title %></h4>
             <class="muted"><%= raincheck.description %>
           </div>
-    		<br>
-    	
-    		<%= link_to 'Edit', [:edit, raincheck], class: 'btn btn-small btn-info' %>
-        <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info' %>
-      <p></p>
+          <br>
+          <div class = "imagelinks"> 
+            <div class="links">
+          		<i class="icon-edit"></i><a href="#myModal2" data-toggle="modal">Edit
+              <i class="icon-ok"></i><%= link_to " Archive", [:complete, raincheck], method: 'put' %>
+              <i class="icon-trash"></i><%= link_to " Delete", [raincheck], :method => :delete, :confirm => "Are you sure?" %>
+            </div>
+          </div>
+        <p></p>
     </div>
-    		<% end %>
-  
+    	<% end %> 
 </ul>
-
 
 
 <ul class = "span5">
-
 	<h3> Taken Rainchecks</h3>
-	<% @taken.each do |raincheck| %>
-  <div class="raincheck-container"
-    <p></p>
-		<div class="media">
-      <a class="pull-left" href="#">
-        <img class="media-object" data-src=img src="/assets/raincheck.jpg">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading"><%= raincheck.title %></h4>
-        <%= raincheck.description %>
-      </div>
+	 <% @taken.each do |raincheck| %>
+    <div class="raincheck-container"
       <p></p>
-		<%= link_to 'Schedule', [:edit, raincheck], class: 'btn btn-small btn-success' %>
-    <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info' %>
-    <p></p>
-  </div>
+		  <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" data-src=img src="/assets/raincheck.jpg">
+        </a>
+          <div class="media-body">
+            <h4 class="media-heading"><%= raincheck.title %></h4>
+            <%= raincheck.description %>
+          </div>
+          <p></p>
+          <div class = "imagelinks"> 
+            <div class="links">
+		        <i class="icon-calendar"></i><%= link_to ' Schedule', [:edit, raincheck] %>
+            <i class="icon-ok"></i><%= link_to " Archive", [:complete, raincheck], method: 'put' %>
+              <p></p>
+            </div>
+          </div>
+      </div>
 		<% end %>
-<br></br>
+  <br></br>
 </ul>
-
 </div>

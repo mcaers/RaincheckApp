@@ -11,23 +11,26 @@
       <div class="media <%= klass %>">
         <a class="pull-left" href="#">
         <img class="media-object" data-src=img src="/assets/raincheck.jpg" />
-
         </a>
         <div class="media-body">
         <h4 class="media-heading"><%= raincheck.title %></h4>
         <class="muted"><%= raincheck.description %>
-
-     
       <br>
       <% if !raincheck.completed %>
       <div class="buttons">
-        <%= link_to 'Edit', [:edit, raincheck], class: 'btn btn-small btn-info edit' %>
-        <%= link_to 'Completed', [:complete, raincheck], method: 'put', class: 'btn btn-small btn-info complete' %>
+        <div class = "imagelinks"> 
+          <div class="links">
+            <i class="icon-edit"></i><%= link_to ' Edit', [:edit, raincheck] %>
+            <i class="icon-ok"></i><%= link_to ' Archive', [:complete, raincheck], method: 'put'%>
+            <i class="icon-trash"></i><%= link_to " Delete", [raincheck], :method => :delete, :confirm => "Are you sure?" %>
+          </div>  
+        </div>
         <% end %>
+
       </div>
       <% if raincheck.completed %>COMPLETED!
-        <div class="pull-right">
-        <%= link_to 'Delete', [raincheck], :method => :delete, :class => 'btn btn-small btn-danger', :confirm => "Are you sure?" %>
+      <div class="pull-right">
+        <i class="icon-trash"></i><%= link_to ' Delete', [raincheck], :method => :delete, :confirm => "Are you sure?" %>
         <% end %>
         </div>
     </div>
@@ -50,13 +53,17 @@
        
         <br>
         <% if !raincheck.completed %>
-      		<%= link_to 'Schedule', [:edit, raincheck], class: 'btn btn-small btn-success' %>
+        <div class = "imagelinks"> 
+          <div class="links">
+      		  <i class="icon-calendar"></i><%= link_to ' Schedule', [:edit, raincheck] %>
+          </div>
+        </div>
         <% end %>
     
     </div>
       <% if raincheck.completed %>COMPLETED!
         <div class="pull-right">
-        <%= link_to 'Delete', [raincheck], :method => :delete, :class => 'btn btn-small btn-danger', :confirm => "Are you sure?" %>
+        <i class="icon-trash"></i><%= link_to ' Delete', [raincheck], :method => :delete, :confirm => "Are you sure?" %>
         <% end %>
         </div>
      </div>
