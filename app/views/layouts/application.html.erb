@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <title>Raincheck</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>Raincheck</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
-<body>
- <div class="container">
-  
+  </head>
+
+  <body>
+ 
  	<%= render "/layouts/nav" %>
+
+  <div class="list container">
+
   <%= render "/layouts/newraincheckmodal" %>
    
 	
@@ -29,6 +34,8 @@
     
 
     <%= yield %>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </div>
-</body>
+  </body>
 </html>

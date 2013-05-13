@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-transition.js
+//= require bootstrap.js
 //= require_tree .

@@ -1,23 +1,22 @@
-
-
-
-<div class = "span12">
-  <h3> Raincheck History</h3>
-  <ul class = "span5">
+<div class = "background">
+  <div class="title-container">
+    <h3> Raincheck History</h3> 
+    </div> 
+  <ul class = "given-rainchecks span5">
 
     <h3> Given Rainchecks</h3>
     <% @given.each do |raincheck| %>
+    <hr>
       <% klass = raincheck.completed ? 'completed' : '' %>
       <div class="media <%= klass %>">
         <a class="pull-left" href="#">
-        <img class="media-object" data-src=img src="/assets/raincheck.jpg" />
+        <img class="media-object" data-src=img src="/assets/raincheck.png" />
         </a>
         <div class="media-body">
         <h4 class="media-heading"><%= raincheck.title %></h4>
         <class="muted"><%= raincheck.description %>
       <br>
       <% if !raincheck.completed %>
-      <div class="buttons">
         <div class = "imagelinks"> 
           <div class="links">
             <i class="icon-edit"></i><%= link_to ' Edit', [:edit, raincheck] %>
@@ -29,23 +28,27 @@
 
       </div>
       <% if raincheck.completed %>COMPLETED!
-      <div class="pull-right">
-        <i class="icon-trash"></i><%= link_to ' Delete', [raincheck], :method => :delete, :confirm => "Are you sure?" %>
-        <% end %>
+        <div class="pull-right">
+          <div class = "imagelinks"> 
+            <div class="links">
+              <i class="icon-trash"></i><%= link_to ' Delete', [raincheck], :method => :delete, :confirm => "Are you sure?" %>
+            </div>
+          </div>
         </div>
-    </div>
-
-    <% end %>
+        <% end %>
+     </div>
+      <% end %>
 
   </ul>
   <ul class = "span5">
 
   	<h3> Taken Rainchecks</h3>
   	<% @taken.each do |raincheck| %>
+    <hr>
     <% klass = raincheck.completed ? 'completed' : '' %>
   		<div class="media <%= klass %>">
         <a class="pull-left" href="#">
-          <img class="media-object" data-src=img src="/assets/raincheck.jpg">
+          <img class="media-object" data-src=img src="/assets/raincheck.png">
         </a>
         <div class="media-body">
           <h4 class="media-heading"><%= raincheck.title %></h4>
@@ -63,12 +66,18 @@
     </div>
       <% if raincheck.completed %>COMPLETED!
         <div class="pull-right">
-        <i class="icon-trash"></i><%= link_to ' Delete', [raincheck], :method => :delete, :confirm => "Are you sure?" %>
-        <% end %>
+          <div class = "imagelinks"> 
+            <div class="links">
+              <i class="icon-trash"></i><%= link_to ' Delete', [raincheck], :method => :delete, :confirm => "Are you sure?" %>
+            </div>
+          </div>
         </div>
+        <% end %>
      </div>
       <% end %>
-</ul>
+  </ul>
+
+<div class="clearfix"></div>
 </div>
     
   

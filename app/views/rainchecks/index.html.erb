@@ -1,12 +1,12 @@
-<div class = "span12">
-  <ul class = "span5">
+<div class="background">
+  <ul class = "given-rainchecks span5">
 	 <h3> Given Rainchecks</h3>
   	<% @given.each do |raincheck| %>
     <div class="raincheck-container"
       <p></p>
       	<div class="media">
           <a class="pull-left" href="#">
-            <img class="media-object" data-src=img src="/assets/raincheck.jpg" />  
+            <img class="media-object" data-src=img src="/assets/raincheck.png" />  
           </a>
           <div class="media-body">
             <h4 class="media-heading"><%= raincheck.title %></h4>
@@ -15,7 +15,7 @@
           <br>
           <div class = "imagelinks"> 
             <div class="links">
-          		<i class="icon-edit"></i><a href="#myModal2" data-toggle="modal">Edit
+          		<i class="icon-edit"></i><%= link_to 'Edit', [:edit, raincheck]%> 
               <i class="icon-ok"></i><%= link_to " Archive", [:complete, raincheck], method: 'put' %>
               <i class="icon-trash"></i><%= link_to " Delete", [raincheck], :method => :delete, :confirm => "Are you sure?" %>
             </div>
@@ -26,14 +26,14 @@
 </ul>
 
 
-<ul class = "span5">
+<ul class = "taken-rainchecks span5">
 	<h3> Taken Rainchecks</h3>
 	 <% @taken.each do |raincheck| %>
     <div class="raincheck-container"
       <p></p>
 		  <div class="media">
         <a class="pull-left" href="#">
-          <img class="media-object" data-src=img src="/assets/raincheck.jpg">
+          <img class="media-object" data-src=img src="/assets/raincheck.png">
         </a>
           <div class="media-body">
             <h4 class="media-heading"><%= raincheck.title %></h4>
@@ -51,4 +51,5 @@
 		<% end %>
   <br></br>
 </ul>
+<div class="clearfix"</div>
 </div>

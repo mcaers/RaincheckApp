@@ -1,19 +1,16 @@
-<div class = "span12">
-
+<div class="background">  
+  <div class = "span5">
   <h2>Edit <%= @raincheck.title %></h2>
-
-  <hr/>
-
-    <div class="well">
-      <%= link_to [:rainchecks], :class => 'btn btn-small' do %>
+  
+    
+      <%= link_to [:rainchecks] do %>
         &laquo; My Rainchecks
       <% end %>
 
       <div class="pull-right">
-        <%= link_to 'Delete Raincheck', [@raincheck], :method => :delete, :class => 'btn btn-small btn-danger', :confirm => "Are you sure?" %>
+        <i class="icon-trash"></i><%= link_to ' Delete ', [@raincheck], :method => :delete, :confirm => "Are you sure?" %>
       </div>
    
-  </div>
   
   <%= form_for [@raincheck] do |f| %>
 
@@ -23,8 +20,10 @@
     <%= render f %>
     
       <div class="well">
-        <%= f.submit 'Update Raincheck', class: 'btn' %>
+        <%= f.submit 'Update Raincheck', class: 'btn btn-primary' %>
       </div>
    
   <% end %>
+  </div>
+  <div class="clearfix"</div>
 </div>

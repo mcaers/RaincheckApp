@@ -3,10 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .image {
-   float: none;
-   margin-left: 45%;
-   margin-right: 50%;
-   margin-top: 30%;
 }
 
 html { 
@@ -26,6 +22,17 @@ h1 {
   font-style: normal;
   font-weight: 400;
   font-size: 60px;
-  margin-right: 20%;
+  text-align: center;
+  margin-top: 300px;
+  @media (max-width: 600px) {
+    margin-top: 200px;
+  }
+  @media (max-width: 450px) {
+    margin-top: 150px;
+  }
 }
  
+.home-buttons {
+  display: block;
+  text-align: center;
+}

@@ -10,38 +10,62 @@ html {
   background-size: cover;
 }
 
+.navbar-fixed-top {
+  @media (max-width: 979px){
+    margin-bottom: 0px;
+  }
+
+}
+.background {
+  background: rgba(255,255,255,0.65);
+  padding-top: 70px;
+  
+  @media (max-width: 768px) {
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+} 
+
+.given-rainchecks {
+  padding-left: 20px;
+}
+
+.taken-rainchecks {
+  padding-left: 40px;
+}
+
+.title-container{
+  padding-left: 25px;
+}
+
 
 body {
-	background: white;
-	// padding-top: 60px;
-	width: 80%;
-	margin-left: 5%;
-	margin-right: 5%;
+  background-color: transparent;
+  // padding-top: 60px;
 }
 
 .completed {
-	// color: gray;
-	background: #DEDEDE;
-	border-radius: 5px;
-}
-
-.buttons.edit {
-
-}
-
-.buttons.complete {
-	
+  background: rgba(0,0,0,0.20);
+  border-radius: 5px;
+  color: black;
 }
 
 .container-inner {
-	height: 100px;
-   
-	}
+  height: 100px;
+  }
 
-.container {
-	background: white;
+h3 {
+  margin-top: 0px;
+}
+
+
+.list .container {
   padding-bottom: 40px;
-	padding-top: 70px;
+  padding-top: 50px;
+  @media (max-width: 979px){
+    padding-top: 0px;
+  }
 }
 
 .navbar .navbar-inner {
@@ -79,9 +103,21 @@ body {
   border-top: 1px;
   border-bottom: 0px;
   border-style: solid;
-  border-color: #DEDEDE;
+  border-color: #595959;
   border-right: 0px;
   border-left: 0px;
 }
 
+.media-heading {
+  color: #54B3D6;
+}
 
+hr {
+  border-color: #595959;
+  border-top: .5px;
+}
+
+.profile {
+  padding-left: 40px;
+  padding-bottom: 50px;
+}
